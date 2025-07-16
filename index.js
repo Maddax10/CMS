@@ -11,7 +11,7 @@ const listPersonnels = document.querySelector("#listPersonnels");
 const btnAddFormation = document.querySelector("#addFormation");
 const btnAddPersonnel = document.querySelector("#addPersonnel");
 
-const apiUrl = "https://api-nodejs-e6am.onrender.com/API";
+const apiUrl = "http://localhost:3000/api";
 
 const tabFormations = document.querySelector("#tabFormations");
 const tabPersonnels = document.querySelector("#tabPersonnels");

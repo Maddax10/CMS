@@ -98,14 +98,13 @@ body {
   thead {
     background-color: #4800ff18;
   }
-  tbody {
-  }
+
   thead,
   tbody {
     tr {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
-      box-shadow: 0 1px 0 0 black;
+      box-shadow: 0 1px 0 0 black, 1px 0 0 0 black;
     }
   }
 }
@@ -130,15 +129,18 @@ body {
 
   thead {
     background-color: #ff000018;
+
   }
-  tbody {
-  }
+
   thead,
   tbody {
     tr {
       display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      box-shadow: 0 1px 0 0 black;
+      grid-template-columns: repeat(7, 1fr);
+      justify-content: center;
+    }
+    td {
+      box-shadow: 0 1px 0 0 black, 1px 0 0 0 black;
     }
   }
 }
@@ -170,12 +172,15 @@ body {
     tr {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
-      box-shadow: 0 1px 0 0 black;
+    }
+    td {
+      box-shadow: 0 1px 0 0 black, 1px 0 0 0 black;
     }
   }
 }
 
-.modifyItem, .deleteItem {
+.modifyItem,
+.deleteItem {
   background-color: red;
   color: white;
   padding: 0.5rem;
@@ -184,7 +189,7 @@ body {
   user-select: none;
   cursor: pointer;
   justify-content: center;
-  border:1px solid black;
+  border: 1px solid black;
 }
 .hidden {
   display: none;
