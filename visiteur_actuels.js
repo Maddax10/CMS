@@ -1,6 +1,4 @@
-
-const apiUrl = "http://localhost:3000/api";
-
+const apiUrl = "https://api-nodejs-e6am.onrender.com/api";
 
 const reloadHistoric = () => {
 
