@@ -11,7 +11,7 @@ const listPersonnels = document.querySelector("#listPersonnels");
 const btnAddFormation = document.querySelector("#addFormation");
 const btnAddPersonnel = document.querySelector("#addPersonnel");
 
-const apiUrl = "http://localhost:3000/api";
+const apiUrl = "https://api-nodejs-e6am.onrender.com/API";
 
 const tabFormations = document.querySelector("#tabFormations");
 const tabPersonnels = document.querySelector("#tabPersonnels");
@@ -64,8 +64,8 @@ const reloadPersonnels = () => {
             <td>${element.name_personnels}</td>
             <td>${element.firstname_personnels}</td>
             <td>${element.email_personnels}</td>
-            <td>${element.local_personnels}</td>
             <td>${element.phone_personnels}</td>
+            <td>${element.local_personnels}</td>
             <td>
               <span class="modifyItem" id="modifyPersonnel">modifier</span>
               <span class="deleteItem" id="deletePersonnel">supprimer</span>
@@ -76,7 +76,7 @@ const reloadPersonnels = () => {
     });
 }
 
-//Récupérer tous le Personnels
+//Récupérer tous le Personnels ou la fonction est "Formateur"
 const reloadHistoric = () => {
   const tbodyPersonnels = document.querySelector("#tbodyPersonnels");
   tbodyPersonnels.innerHTML = "";
@@ -98,6 +98,25 @@ const reloadHistoric = () => {
               <span class="deleteItem" id="deletePersonnel">supprimer</span>
             </td>
           </tr>`;
+
+      });
+    });
+}
+
+const reloadFormateurs = () => {
+  const tbodyPersonnels = document.querySelector("#formateurs_formations");
+  tbodyPersonnels.innerHTML = "";
+  fetch(apiUrl + "/personnels")
+    .then(response => response.json())
+    .then(data => {
+      data.forEach(element => {
+        //insérer les données dans le tableau formations
+        tbodyPersonnels.innerHTML +=
+          `
+            <option value="${element.name_personnels} ${element.firstname_personnels}">
+              ${element.name_personnels} ${element.firstname_personnels}
+            </option>
+            `;
 
       });
     });
@@ -272,5 +291,7 @@ personnelsForm.addEventListener("submit", handleSubmits);
 //===================================================================================================
 //Au démarrage de la page, je charge les informations des différents tableaux
 //===================================================================================================
+reloadFormateurs();
 reloadFormations();
 reloadPersonnels();
+
